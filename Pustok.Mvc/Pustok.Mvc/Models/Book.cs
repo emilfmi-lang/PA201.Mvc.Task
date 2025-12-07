@@ -17,6 +17,7 @@ public class Book:BaseEntity
     public bool InStock { get; set; }  
     public bool IsFeatured { get; set; }
     public int AuthorId { get; set; }
+    public bool IsNew { get; set; }
     public Author Author { get; set; }
 
 }
