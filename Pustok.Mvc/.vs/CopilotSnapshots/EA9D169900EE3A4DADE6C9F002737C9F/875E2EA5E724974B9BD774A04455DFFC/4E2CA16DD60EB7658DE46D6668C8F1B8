@@ -1,0 +1,22 @@
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Mvc;
+using Pustok.Mvc.Data;
+using Pustok.Mvc.Models;
+using Pustok.Mvc.ViewModels;
+
+namespace Pustok.Mvc.Controllers
+{
+    public class HomeController(AppDbContext dbContext) : Controller
+    {
+        public IActionResult Index()
+        {
+            Homevm homeVm = new Homevm
+            {
+                Sliders = dbContext.Sliders.ToList(),
+                Books = dbContext.Books.ToList()
+            };
+            return View(homeVm);
+        }
+    }
+}

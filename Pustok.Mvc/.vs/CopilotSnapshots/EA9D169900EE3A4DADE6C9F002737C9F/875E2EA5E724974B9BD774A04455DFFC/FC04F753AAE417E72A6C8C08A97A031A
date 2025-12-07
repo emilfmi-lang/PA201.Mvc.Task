@@ -1,0 +1,18 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Pustok.Mvc.Data;
+
+namespace Pustok.Mvc.Controllers
+{
+    public class BooksController(AppDbContext dbContext) : Controller
+    {
+        public IActionResult Details(int id)
+        {
+         var book = dbContext.Books.FirstOrDefault(b => b.Id == id);
+       
+     if (book == null)
+             return NotFound();
+    
+            return View(book);
+        }
+    }
+}

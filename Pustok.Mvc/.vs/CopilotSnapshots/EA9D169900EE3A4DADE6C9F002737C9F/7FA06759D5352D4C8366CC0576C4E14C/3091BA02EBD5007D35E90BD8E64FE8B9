@@ -1,0 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Pustok.Mvc.Models;
+
+namespace Pustok.Mvc.Data;
+
+public class AppDbContext : DbContext
+{
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+    }
+    public DbSet<Slider> Sliders { get; set; }
+}
