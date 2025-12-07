@@ -1,11 +1,13 @@
-﻿namespace Pustok.Mvc.Models;
+﻿using Pustok.Mvc.Models.Common;
 
-public class Slider
+namespace Pustok.Mvc.Models;
+
+public class Slider :BaseEntity
 {
-    public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public string ImageUrl { get; set; }
     public string ButtonText { get; set; }
     public string ButtonUrl { get; set; }
+    public int Order { get; set; }
 }

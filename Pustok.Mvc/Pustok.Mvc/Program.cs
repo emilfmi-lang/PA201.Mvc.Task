@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Pustok.Mvc.Data;
 
 var builder = WebApplication.CreateBuilder(args);
