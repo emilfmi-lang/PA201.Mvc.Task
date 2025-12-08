@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "Ana Sehife";
+}
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Kitabların Gözəl Dünyasına Xoş Gəlmisiniz</h1>
+            <p>Minlərlə kitab arasından seçim edin və oxumağa başlayın</p>
+            <button class="cta-btn">İndi Kəşf Et</button>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="categories" id="categories">
+    <div class="container">
+        <h2 class="section-title">Kateqoriyalar</h2>
+        <div class="category-grid" id="categoryGrid">
+            <div class="category-card" data-category="fiction">
+                <i class="fas fa-book"></i>
+                <h3>Bədii ədəbiyyat</h3>
+            </div>
+            <div class="category-card" data-category="science">
+                <i class="fas fa-flask"></i>
+                <h3>Elm</h3>
+            </div>
+            <div class="category-card" data-category="history">
+                <i class="fas fa-landmark"></i>
+                <h3>Tarix</h3>
+            </div>
+            <div class="category-card" data-category="biography">
+                <i class="fas fa-user"></i>
+                <h3>Bioqrafiya</h3>
+            </div>
+            <div class="category-card" data-category="technology">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Texnologiya</h3>
+            </div>
+            <div class="category-card" data-category="children">
+                <i class="fas fa-child"></i>
+                <h3>Uşaq kitabları</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Books Section -->
+<section class="books" id="books">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Populyar Kitablar</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Hamısı</button>
+                <button class="filter-btn" data-filter="new">Yeni</button>
+                <button class="filter-btn" data-filter="bestseller">Bestseller</button>
+                <button class="filter-btn" data-filter="discount">Endirimli</button>
+            </div>
+        </div>
+        <div class="book-grid" id="bookGrid">
+            <!-- Books will be loaded here via JavaScript -->
+            <div class="loading">Yüklənir...</div>
+        </div>
+        <button class="load-more" id="loadMore">Daha çox göstər</button>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">Haqqımızda</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Bizimlə oxumaq zövqdür</h3>
+                <p>Biz 2020-ci ildən fəaliyyət göstərən onlayn kitabxanayıq. Məqsədimiz hər kəsə keyfiyyətli və əlçatan kitablar təqdim etməkdir.</p>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 10,000+ kitab</li>
+                    <li><i class="fas fa-check"></i> Pulsuz çatdırılma</li>
+                    <li><i class="fas fa-check"></i> 24/7 dəstək</li>
+                    <li><i class="fas fa-check"></i> Təhlükəsiz ödəniş</li>
+                </ul>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <h3>10K+</h3>
+                    <p>Kitablar</p>
+                </div>
+                <div class="stat-card">
+                    <h3>50K+</h3>
+                    <p>İstifadəçilər</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100K+</h3>
+                    <p>Satışlar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Bizimlə Əlaqə</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Ünvan</h4>
+                        <p>Bakı, Azərbaycan</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Telefon</h4>
+                        <p>+994 XX XXX XX XX</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@ekitabxana.az</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Adınız" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Mesajınız" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Göndər</button>
+            </form>
+        </div>
+    </div>
+</section>
