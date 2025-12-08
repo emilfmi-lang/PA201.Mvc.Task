@@ -30,5 +30,15 @@ namespace Pustok.Mvc.Controllers
             };
             return View(homeVm);
         }
+
+        public IActionResult Test()
+        {
+            var books = dbContext.Books
+                .Include(b => b.Author)
+                .Include(b => b.BookImages)
+                .Where(b => b.IsFeatured)
+                .ToList();
+            return PartialView("_BooksPartial", books);
+        }
     }
 }
