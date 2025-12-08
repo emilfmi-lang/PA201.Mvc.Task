@@ -25,5 +25,8 @@ public class AppDbContext : DbContext
             .Property(b => b.IsFeatured)
             .HasDefaultValue(false);
 
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        base.OnModelCreating(modelBuilder);
+
     }
 }

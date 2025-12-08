@@ -60,6 +60,10 @@ namespace Pustok.Mvc.Data.Migrations
                     b.Property<int>("DiscountedPercent")
                         .HasColumnType("int");
 
+                    b.Property<string>("HoverImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("InStock")
                         .HasColumnType("bit");
 
@@ -71,9 +75,14 @@ namespace Pustok.Mvc.Data.Migrations
                     b.Property<bool>("IsNew")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("MainImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -83,6 +92,28 @@ namespace Pustok.Mvc.Data.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Pustok.Mvc.Models.BookImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookImage");
                 });
 
             modelBuilder.Entity("Pustok.Mvc.Models.Slider", b =>
@@ -132,9 +163,25 @@ namespace Pustok.Mvc.Data.Migrations
                     b.Navigation("Author");
                 });
 
+            modelBuilder.Entity("Pustok.Mvc.Models.BookImage", b =>
+                {
+                    b.HasOne("Pustok.Mvc.Models.Book", "Book")
+                        .WithMany("BookImages")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
             modelBuilder.Entity("Pustok.Mvc.Models.Author", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Pustok.Mvc.Models.Book", b =>
+                {
+                    b.Navigation("BookImages");
                 });
 #pragma warning restore 612, 618
         }

@@ -14,9 +14,19 @@ namespace Pustok.Mvc.Controllers
                 Sliders = dbContext.Sliders.ToList(),
                 FeaturedBooks = dbContext.Books.
                 Include(b => b.Author).
+                Include(b => b.BookImages).
+
                 Where(b => b.IsFeatured).ToList(),
-                NewBooks = dbContext.Books.Where(b => b.IsNew).ToList(),
-                DiscountedBooks = dbContext.Books.Where(b => b.DiscountedPercent > 0).ToList()
+                NewBooks = dbContext.Books.
+                Include(b => b.Author).
+                Include(b => b.BookImages).
+
+                Where(b => b.IsNew).ToList(),
+                DiscountedBooks = dbContext.Books.
+                Include(b => b.Author).
+
+                Include(b => b.BookImages).
+                Where(b => b.DiscountedPercent > 0).ToList()
             };
             return View(homeVm);
         }
