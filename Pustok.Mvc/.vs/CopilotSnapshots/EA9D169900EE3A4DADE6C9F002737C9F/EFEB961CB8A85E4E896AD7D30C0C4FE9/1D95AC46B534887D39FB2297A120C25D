@@ -60,7 +60,17 @@
             </div>
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30 ">
-                    <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
+                    <p class="tag-block">
+                     Tags: 
+      @if (Model.Book.BookTags != null && Model.Book.BookTags.Any())
+                {
+                @Html.Raw(string.Join(", ", Model.Book.BookTags.Select(bt => $"<a href='#'>{bt.Tag.Name}</a>")))
+          }
+          else
+              {
+             <span>No tags</span>
+    }
+                    </p>
                     <h3 class="product-title">@Model.Book.Name</h3>
                     <ul class="list-unstyled">
                         <li>Ex Tax: <span class="list-value"> £@Model.Book.Price</span></li>
@@ -162,7 +172,7 @@
                         <h2 class="title-lg mb--20">1 REVIEW FOR AUCTOR GRAVIDA ENIM</h2>
                         <div class="review-comment mb--20">
                             <div class="avatar">
-                                <img src="image/icon/author-logo.png" alt="">
+                                <img src="~/assets/image/icon/author-logo.png" alt="">
                             </div>
                             <div class="text">
                                 <div class="rating-block mb--15">
@@ -546,7 +556,9 @@
                         </div>
                         <div class="col-lg-7 mt--30 mt-lg--30">
                             <div class="product-details-info pl-lg--30 ">
-                                <p class="tag-block">Tags: @Html.Raw(string.Join(",", @Model.Book.BookTags.Select(bk =>$"<a href='#'>{bk.Tag.Name}</a>")))</p>
+                                <p class="tag-block">
+                                Tags: @Html.Raw(string.Join(",", @Model.Book.BookTags.Select(bk =>$"<a href='#'>{bk.Tag.Name}</a>")))
+                                </p>
                                 <h3 class="product-title">Beats EP Wired On-Ear Headphone-Black</h3>
                                 <ul class="list-unstyled">
                                     <li>Ex Tax: <span class="list-value"> £60.24</span></li>

@@ -22,5 +22,6 @@ public class Book:BaseEntity
     public bool IsNew { get; set; }
     public Author Author { get; set; }
     public List<BookImage> BookImages { get; set; }
+    public List<BookTag> BookTags { get; set; }
 
 }

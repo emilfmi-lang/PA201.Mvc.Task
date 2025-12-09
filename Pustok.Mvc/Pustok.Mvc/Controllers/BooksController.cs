@@ -12,6 +12,8 @@ public class BooksController(AppDbContext appDbContext) : Controller
         var book = appDbContext.Books
             .Include(x => x.Author)
             .Include(x => x.BookImages)
+            .Include(x => x.BookTags)
+                .ThenInclude(bt => bt.Tag)
             .FirstOrDefault(x => x.Id == id);
         if (book == null) return NotFound();
         BookVm bookVm = new()
@@ -20,4 +22,17 @@ public class BooksController(AppDbContext appDbContext) : Controller
         };
         return View("BooksDetails", bookVm);
     }
+
+    public IActionResult BookModal(int id)
+    {
+        var book = appDbContext.Books
+            .Include(x => x.Author)
+            .Include(x => x.BookImages)
+            .Include(x => x.BookTags)
+                .ThenInclude(bt => bt.Tag)
+            .FirstOrDefault(x => x.Id == id);
+        if (book == null) return NotFound();
+        return PartialView("_BookModalPartial", book);
+    }
 }
+
