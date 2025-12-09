@@ -5,13 +5,13 @@
 
 <section class="breadcrumb-section">
     <h2 class="sr-only">Site Breadcrumb</h2>
-<div class="container">
+    <div class="container">
         <div class="breadcrumb-contents">
-          <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
-            <li class="breadcrumb-item active">Product Details</li>
-    </ol>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item active">Product Details</li>
+                </ol>
             </nav>
         </div>
     </div>
@@ -19,9 +19,9 @@
 <main class="inner-page-sec-padding-bottom">
     <div class="container">
         <div class="row  mb--60">
-      <div class="col-lg-5 mb--30">
-      <!-- Product Details Slider Big Image-->
-   <div class="product-details-slider sb-slick-slider arrow-type-two" data-slick-setting='{
+            <div class="col-lg-5 mb--30">
+                <!-- Product Details Slider Big Image-->
+                <div class="product-details-slider sb-slick-slider arrow-type-two" data-slick-setting='{
        "slidesToShow": 1,
    "arrows": false,
       "fade": true,
@@ -30,15 +30,15 @@
               "asNavFor": ".product-slider-nav"
        }'>
 
-         @foreach (var item in Model.Book.BookImages)
-      {
-            <div class="single-slide">
-       <img src="~/assets/image/products/@item.ImageUrl" alt="">
-      </div>
-}
-        </div>
-      <!-- Product Details Slider Nav -->
-          <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two" data-slick-setting='{
+                    @foreach (var item in Model.Book.BookImages)
+                    {
+                        <div class="single-slide">
+                            <img src="~/assets/image/products/@item.ImageUrl" alt="">
+                        </div>
+                    }
+                </div>
+                <!-- Product Details Slider Nav -->
+                <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two" data-slick-setting='{
      "infinite":true,
        "autoplay": true,
       "autoplaySpeed": 8000,
@@ -50,37 +50,37 @@
        "focusOnSelect": true
         }'>
 
-  @foreach (var item in Model.Book.BookImages)
-   {
-       <div class="single-slide">
-         <img src="~/assets/image/products/@item.ImageUrl" alt="">
-</div>
-     }
-        </div>
-       </div>
-    <div class="col-lg-7">
-    <div class="product-details-info pl-lg--30 ">
-        <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
-             <h3 class="product-title">@Model.Book.Name</h3>
-   <ul class="list-unstyled">
-  <li>Ex Tax: <span class="list-value"> £@Model.Book.Price</span></li>
-           <li>Brands: <a href="#" class="list-value font-weight-bold"> @Model.Book.Author.Name</a></li>
-                <li>Product Code: <span class="list-value"> @Model.Book.Code</span></li>
-      <li>Reward Points: <span class="list-value"> 200</span></li>
-     <li>Availability: <span class="list-value"> @(Model.Book.InStock ? "InStock" : "Out Of Stock")</span></li>
-  </ul>
-          <div class="price-block">
-       @if (Model.Book.DiscountedPercent > 0)
-               {
-        var discountedPrice = Model.Book.Price * (1 - Model.Book.DiscountedPercent / 100);
-         <span class="price-new">£@discountedPrice.ToString("F2")</span>
-       <del class="price-old">£@Model.Book.Price</del>
- }
-    else
-        {
-        <span class="price-new">£@Model.Book.Price</span>
-    }
-           </div>
+                    @foreach (var item in Model.Book.BookImages)
+                    {
+                        <div class="single-slide">
+                            <img src="~/assets/image/products/@item.ImageUrl" alt="">
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="product-details-info pl-lg--30 ">
+                    <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
+                    <h3 class="product-title">@Model.Book.Name</h3>
+                    <ul class="list-unstyled">
+                        <li>Ex Tax: <span class="list-value"> £@Model.Book.Price</span></li>
+                        <li>Brands: <a href="#" class="list-value font-weight-bold"> @Model.Book.Author.Name</a></li>
+                        <li>Product Code: <span class="list-value"> @Model.Book.Code</span></li>
+                        <li>Reward Points: <span class="list-value"> 200</span></li>
+                        <li>Availability: <span class="list-value"> @(Model.Book.InStock ? "InStock" : "Out Of Stock")</span></li>
+                    </ul>
+                    <div class="price-block">
+                        @if (Model.Book.DiscountedPercent > 0)
+                        {
+                            var discountedPrice = Model.Book.Price * (1 - Model.Book.DiscountedPercent / 100);
+                            <span class="price-new">£@discountedPrice.ToString("F2")</span>
+                            <del class="price-old">£@Model.Book.Price</del>
+                        }
+                        else
+                        {
+                            <span class="price-new">£@Model.Book.Price</span>
+                        }
+                    </div>
                     <div class="rating-widget">
                         <div class="rating-block">
                             <span class="fas fa-star star_on"></span>

@@ -5,7 +5,7 @@ using Pustok.Mvc.ViewModels;
 
 namespace Pustok.Mvc.Controllers;
 
-public class BookController(AppDbContext appDbContext) : Controller
+public class BooksController(AppDbContext appDbContext) : Controller
 {
     public IActionResult Details(int id)
     {
@@ -18,6 +18,6 @@ public class BookController(AppDbContext appDbContext) : Controller
         {
             Book = book
         };
-        return View(bookVm);
+        return View("BooksDetails", bookVm);
     }
 }
