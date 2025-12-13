@@ -60,7 +60,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30 ">
-                    <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
+                    <p class="tag-block">Tags: @Html.Raw(string.Join(",", (Model.Book.BookTags.Select(tg => $"<a href = '#'>{tg.Tag.Name}</a>"))))</p>
                     <h3 class="product-title">@Model.Book.Name</h3>
                     <ul class="list-unstyled">
                         <li>Ex Tax: <span class="list-value"> £@Model.Book.Price</span></li>

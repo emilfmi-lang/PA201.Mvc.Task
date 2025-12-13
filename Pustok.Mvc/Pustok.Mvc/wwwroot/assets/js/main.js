@@ -9,10 +9,10 @@ $(document).ready(function () {
         fetch(url)
             .then((response) => response.text())
             .then((data) => {
-                $("#bookModal .modal-body").html(data)
+                $("#bookModal .modal-dialog").html(data);
                 $("#bookModal").modal("show");
 
             })
     })
 
-})
+
