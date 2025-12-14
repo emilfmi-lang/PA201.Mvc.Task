@@ -18,9 +18,17 @@ public class BooksController(AppDbContext appDbContext) : Controller
         if (book == null) return NotFound();
         BookVm bookVm = new()
         {
-            Book = book
+            Book = book,
+            RelatedBooks = appDbContext.Books
+            .Include(x => x.Author)
+            .Include(x => x.BookImages)
+            .Where(x => x.AuthorId == book.AuthorId && x.Id != book.Id)
+            .Take(4)
+            .ToList()
+
+
         };
-        return View("BooksDetails", bookVm);
+        return View(bookVm);
     }
 
     public IActionResult BookModal(int id)
